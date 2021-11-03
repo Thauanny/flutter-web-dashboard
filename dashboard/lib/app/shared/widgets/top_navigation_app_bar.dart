@@ -79,7 +79,7 @@ Widget _alarmIcon() => Stack(
 
 Widget _circularAvatar() => Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: primaryActive,
         borderRadius: BorderRadius.circular(30),
       ),
       padding: EdgeInsets.all(2),
