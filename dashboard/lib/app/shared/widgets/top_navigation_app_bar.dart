@@ -1,128 +1,109 @@
 import 'package:dashboard/app/shared/constants/style.dart';
-import 'package:dashboard/app/shared/utils/screen_size_functions.dart';
+import 'package:dashboard/app/shared/helpers/responsive_layout_widget.dart';
 import 'package:flutter/material.dart';
 
-AppBar topNavigationAppBar(
-    BuildContext context, GlobalKey<ScaffoldState> scaffoldKey) {
-  print(!isSmallScreen(context: context));
-  return AppBar(
-    elevation: 0,
-    leading: isLargeScreen(context: context) || isMediumScreen(context: context)
-        ? Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 14),
-                child: Image.asset(
-                  'assets/icons/logo.png',
-                  width: 28,
+import 'custom_text.dart';
+
+AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
+    AppBar(
+      leading: !ResponsiveWidget.isSmallScreen(context)
+          ? Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Image.asset(
+                    "assets/icons/logo.png",
+                    width: 28,
+                  ),
+                ),
+              ],
+            )
+          : IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                key.currentState?.openDrawer();
+              }),
+      title: Container(
+        child: Row(
+          children: [
+            Visibility(
+                visible: !ResponsiveWidget.isSmallScreen(context),
+                child: CustomText(
+                  text: "Dash",
+                  color: lightGrey,
+                  size: 20,
+                  weight: FontWeight.bold,
+                )),
+            Expanded(child: Container()),
+            IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color: dark,
+                ),
+                onPressed: () {}),
+            Stack(
+              children: [
+                IconButton(
+                    icon: Icon(
+                      Icons.notifications,
+                      color: dark.withOpacity(.7),
+                    ),
+                    onPressed: () {}),
+                Positioned(
+                  top: 7,
+                  right: 7,
+                  child: Container(
+                    width: 12,
+                    height: 12,
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                        color: active,
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: light, width: 2)),
+                  ),
+                )
+              ],
+            ),
+            Container(
+              width: 1,
+              height: 22,
+              color: lightGrey,
+            ),
+            SizedBox(
+              width: 24,
+            ),
+            CustomText(
+              size: 16,
+              weight: FontWeight.normal,
+              text: "Santos Enoque",
+              color: lightGrey,
+            ),
+            SizedBox(
+              width: 16,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: active.withOpacity(.5),
+                  borderRadius: BorderRadius.circular(30)),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30)),
+                padding: EdgeInsets.all(2),
+                margin: EdgeInsets.all(2),
+                child: CircleAvatar(
+                  backgroundColor: light,
+                  child: Icon(
+                    Icons.person_outline,
+                    color: dark,
+                  ),
                 ),
               ),
-            ],
-          )
-        : IconButton(
-            onPressed: () {
-              scaffoldKey.currentState!.openDrawer();
-            },
-            icon: Icon(
-              Icons.menu,
-            ),
-          ),
-    title: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _leftSide(),
-        _rigthSide(),
-      ],
-    ),
-    iconTheme: IconThemeData(
-      color: secondGrey,
-    ),
-    backgroundColor: Colors.white,
-  );
-}
-
-Widget _customText(
-        {required String text,
-        double? size,
-        Color? color,
-        FontWeight? weight}) =>
-    Text(
-      text,
-      style: TextStyle(
-          color: color ?? Colors.black,
-          fontSize: size ?? 16,
-          fontWeight: weight ?? FontWeight.normal),
-    );
-
-Widget _alarmIcon() => Stack(
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.notifications),
-          color: secondGrey.withOpacity(0.7),
-        ),
-        Positioned(
-            top: 7,
-            right: 7,
-            child: Container(
-              width: 12,
-              height: 12,
-              padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                  color: primaryActive,
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: Colors.white, width: 2)),
-            ))
-      ],
-    );
-
-Widget _circularAvatar() => Container(
-      decoration: BoxDecoration(
-        color: primaryActive,
-        borderRadius: BorderRadius.circular(30),
-      ),
-      padding: EdgeInsets.all(2),
-      margin: EdgeInsets.all(2),
-      child: CircleAvatar(
-        backgroundColor: primaryWhite,
-        child: Icon(
-          Icons.person_outline,
-          color: secondGrey,
+            )
+          ],
         ),
       ),
-    );
-
-Widget _leftSide() => Container(
-      child: _customText(
-          text: "DashBoard",
-          color: primaryGrey,
-          size: 20,
-          weight: FontWeight.bold),
-    );
-
-Widget _rigthSide() => Row(
-      children: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.settings,
-            color: secondGrey.withOpacity(0.7),
-          ),
-        ),
-        _alarmIcon(),
-        Container(
-          width: 1,
-          height: 22,
-          color: primaryGrey,
-        ),
-        SizedBox(
-          width: 24,
-        ),
-        _customText(text: "Thauanny Ramos", color: primaryGrey),
-        SizedBox(
-          width: 16,
-        ),
-        _circularAvatar()
-      ],
+      iconTheme: IconThemeData(color: dark),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
     );
