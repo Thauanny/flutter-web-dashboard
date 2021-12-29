@@ -1,10 +1,11 @@
+import 'package:dashboard/app/repository/repository.dart';
 import 'package:flutter/material.dart';
 
 import 'column_chart.dart';
 import 'spline_chart.dart';
 
 class SmallScreen extends StatelessWidget {
-  const SmallScreen({Key? key}) : super(key: key);
+  Repository respository = Repository();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,10 @@ class SmallScreen extends StatelessWidget {
                       child: Container(
                         child: Column(
                           children: [
-                            Container(height: 550, child: ColumnChart())
+                            Container(
+                                height: 550,
+                                child:
+                                    ColumnChart(respository.getResponseModel()))
                           ],
                         ),
                       ),
@@ -36,7 +40,10 @@ class SmallScreen extends StatelessWidget {
                       child: Container(
                         child: Column(
                           children: [
-                            Container(height: 550, child: SplineChart())
+                            Container(
+                                height: 550,
+                                child:
+                                    SplineChart(respository.getResponseModel()))
                           ],
                         ),
                       ),
