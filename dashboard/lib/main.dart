@@ -9,8 +9,8 @@ import 'app/modules/navigation/navigation_controller.dart';
 import 'app/modules/routes/routes.dart';
 
 void main() {
-  Get.put(MenuController());
   Get.put(NavigationController());
+  Get.put(MenuController());
 
   runApp(MyApp());
 }

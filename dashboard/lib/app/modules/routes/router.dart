@@ -1,17 +1,18 @@
-import 'package:dashboard/app/modules/home/home_page.dart';
+import 'package:dashboard/app/modules/pages/drivers.dart';
+import 'package:dashboard/app/modules/pages/overview.dart';
 import 'package:dashboard/app/modules/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case overviewPageRoute:
-      return _getPageRoute(SiteLayout());
+      return _getPageRoute(OverviewPage());
     case driversPageRoute:
-      return _getPageRoute(SiteLayout());
+      return _getPageRoute(DriversPage());
     case clientsPageRoute:
-      return _getPageRoute(SiteLayout());
+      return _getPageRoute(OverviewPage());
     default:
-      return _getPageRoute(SiteLayout());
+      return _getPageRoute(OverviewPage());
   }
 }
 

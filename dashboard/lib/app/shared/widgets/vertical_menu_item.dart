@@ -9,8 +9,7 @@ import 'custom_text.dart';
 class VerticalMenuItem extends StatelessWidget {
   final String itemName;
   final Function onTap;
-  const VerticalMenuItem(
-      {Key? key, required this.itemName, required this.onTap})
+  const VerticalMenuItem({Key key, this.itemName, this.onTap})
       : super(key: key);
 
   @override

@@ -1,6 +1,7 @@
 import 'package:dashboard/app/modules/menu/menu_controller_instance.dart';
 import 'package:dashboard/app/shared/constants/style.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import 'custom_text.dart';
@@ -9,7 +10,7 @@ class HorizontalMenuItem extends StatelessWidget {
   final String itemName;
   final Function onTap;
   const HorizontalMenuItem(
-      {Key? key, required this.itemName, required this.onTap})
+      {Key key,  this.itemName,  this.onTap})
       : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class HorizontalMenuItem extends StatelessWidget {
     double _width = MediaQuery.of(context).size.width;
 
     return InkWell(
-        onTap: () {},
+        onTap: onTap,
         onHover: (value) {
           value
               ? menuController.onHover(itemName)

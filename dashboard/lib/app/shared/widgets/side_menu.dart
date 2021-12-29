@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import 'custom_text.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({Key? key}) : super(key: key);
+  const SideMenu({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +59,11 @@ class SideMenu extends StatelessWidget {
                 .map((item) => SideMenuItem(
                     itemName: item.name,
                     onTap: () {
-                      if (item.route == authenticationPageRoute) {
+                      /* if (item.route == authenticationPageRoute) {
                         Get.offAllNamed(authenticationPageRoute);
                         menuController
                             .changeActiveItemTo(overviewPageDisplayName);
-                      }
+                      }*/
                       if (!menuController.isActive(item.name)) {
                         menuController.changeActiveItemTo(item.name);
                         if (ResponsiveWidget.isSmallScreen(context)) Get.back();

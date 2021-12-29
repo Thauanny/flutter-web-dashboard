@@ -18,7 +18,11 @@ class SiteLayout extends StatelessWidget {
         child: SideMenu(),
       ),
       body: ResponsiveWidget(
-          smallScreen: SmallScreen(), largeScreen: LargeScreen()),
+          smallScreen: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: localNavigator(),
+          ),
+          largeScreen: LargeScreen()),
     );
   }
 }

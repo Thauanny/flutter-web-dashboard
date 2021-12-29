@@ -2,13 +2,13 @@ import 'package:dashboard/app/shared/models/response_model.dart';
 import 'package:dashboard/app/shared/utils/format_date_to_month_day_year.dart';
 
 class ChartData {
-  String? x;
-  double? y;
-  double? confirmedCommission;
-  double? waitingApprovalCommission;
-  double? deniedContracts;
-  double? voidedCommission;
-  String? commissionTotal;
+  String x;
+  double y;
+  double confirmedCommission;
+  double waitingApprovalCommission;
+  double deniedContracts;
+  double voidedCommission;
+  String commissionTotal;
 
   ChartData(
       {this.x,
