@@ -14,8 +14,6 @@ class HorizontalMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
-
     return InkWell(
       onTap: onTap,
       onHover: (value) {
@@ -25,44 +23,18 @@ class HorizontalMenuItem extends StatelessWidget {
       },
       child: Obx(
         () => Container(
+          //Hover effect
           color: menuController.isHovering(itemName)
               ? lightGrey.withOpacity(.1)
               : Colors.transparent,
           child: Row(
             children: [
-              Visibility(
-                visible: menuController.isHovering(itemName) ||
-                    menuController.isActive(itemName),
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                child: Container(
-                  width: 6,
-                  height: 40,
-                  color: dark,
-                ),
-              ),
-              SizedBox(width: _width / 88),
+              _sideBarMenu(itemName),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: menuController.returnIconFor(itemName),
               ),
-              if (!menuController.isActive(itemName))
-                Flexible(
-                    child: CustomText(
-                  text: itemName,
-                  color: menuController.isHovering(itemName) ? dark : lightGrey,
-                  size: 16,
-                  weight: FontWeight.normal,
-                ))
-              else
-                Flexible(
-                    child: CustomText(
-                  text: itemName,
-                  color: dark,
-                  size: 18,
-                  weight: FontWeight.bold,
-                ))
+              _itemName(itemName)
             ],
           ),
         ),
@@ -70,3 +42,34 @@ class HorizontalMenuItem extends StatelessWidget {
     );
   }
 }
+
+Widget _sideBarMenu(String itemName) => Visibility(
+      visible: menuController.isHovering(itemName) ||
+          menuController.isActive(itemName),
+      maintainSize: true,
+      maintainAnimation: true,
+      maintainState: true,
+      child: Container(
+        width: 6,
+        height: 40,
+        color: dark,
+      ),
+    );
+
+Widget _itemName(String itemName) => !menuController.isActive(itemName)
+    ? Flexible(
+        child: CustomText(
+          text: itemName,
+          color: menuController.isHovering(itemName) ? dark : lightGrey,
+          size: 16,
+          weight: FontWeight.normal,
+        ),
+      )
+    : Flexible(
+        child: CustomText(
+          text: itemName,
+          color: dark,
+          size: 18,
+          weight: FontWeight.bold,
+        ),
+      );

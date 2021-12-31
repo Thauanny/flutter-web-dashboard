@@ -23,50 +23,24 @@ class VerticalMenuItem extends StatelessWidget {
       },
       child: Obx(
         () => Container(
+          //Hover effect
           color: menuController.isHovering(itemName)
               ? lightGrey.withOpacity(.1)
               : Colors.transparent,
           child: Row(
             children: [
-              Visibility(
-                visible: menuController.isHovering(itemName) ||
-                    menuController.isActive(itemName),
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                child: Container(
-                  width: 3,
-                  height: 72,
-                  color: dark,
-                ),
-              ),
+              _sideBarMenu(itemName),
               Expanded(
                 child: Container(
                   child: Column(
+                    //fit the spine when squeezed
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: menuController.returnIconFor(itemName),
                       ),
-                      if (!menuController.isActive(itemName))
-                        Flexible(
-                            child: CustomText(
-                          weight: FontWeight.normal,
-                          text: itemName,
-                          color: menuController.isHovering(itemName)
-                              ? dark
-                              : lightGrey,
-                          size: 16,
-                        ))
-                      else
-                        Flexible(
-                            child: CustomText(
-                          text: itemName,
-                          color: dark,
-                          size: 18,
-                          weight: FontWeight.bold,
-                        ))
+                      _itemName(itemName),
                     ],
                   ),
                 ),
@@ -78,3 +52,34 @@ class VerticalMenuItem extends StatelessWidget {
     );
   }
 }
+
+Widget _sideBarMenu(String itemName) => Visibility(
+      visible: menuController.isHovering(itemName) ||
+          menuController.isActive(itemName),
+      maintainSize: true,
+      maintainAnimation: true,
+      maintainState: true,
+      child: Container(
+        width: 3,
+        height: 72,
+        color: dark,
+      ),
+    );
+
+Widget _itemName(String itemName) => !menuController.isActive(itemName)
+    ? Flexible(
+        child: CustomText(
+          weight: FontWeight.normal,
+          text: itemName,
+          color: menuController.isHovering(itemName) ? dark : lightGrey,
+          size: 16,
+        ),
+      )
+    : Flexible(
+        child: CustomText(
+          text: itemName,
+          color: dark,
+          size: 18,
+          weight: FontWeight.bold,
+        ),
+      );
