@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import 'custom_text.dart';
+import '../custom_text.dart';
 
 class HorizontalMenuItem extends StatelessWidget {
   final String itemName;
   final Function onTap;
-  const HorizontalMenuItem(
-      {Key key,  this.itemName,  this.onTap})
+  const HorizontalMenuItem({Key key, this.itemName, this.onTap})
       : super(key: key);
 
   @override

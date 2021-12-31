@@ -3,11 +3,11 @@ import 'package:dashboard/app/modules/navigation/navigator_controler_instance.da
 import 'package:dashboard/app/modules/routes/routes.dart';
 import 'package:dashboard/app/shared/constants/style.dart';
 import 'package:dashboard/app/shared/helpers/responsive_layout_widget.dart';
-import 'package:dashboard/app/shared/widgets/side_menu_item.dart';
+import 'package:dashboard/app/shared/widgets/menu/side_menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'custom_text.dart';
+import '../custom_text.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key key}) : super(key: key);

@@ -1,16 +1,16 @@
 const rootRoute = "/";
 
-const overviewPageDisplayName = "Overview";
-const overviewPageRoute = "/overview";
+const columnChartPageDisplayName = "Column Chart";
+const columnChartPageRoute = "/columnChart";
 
-const driversPageDisplayName = "Drivers";
-const driversPageRoute = "/drivers";
+const splineChartPageDisplayName = "Spline Chart";
+const splineChartPageRoute = "/splineChart";
 
-const clientsPageDisplayName = "Clients";
-const clientsPageRoute = "/clients";
+const funnelChartPageDisplayName = "Funnel Chart";
+const funnelChartPageRoute = "/funnelChart";
 
-const authenticationPageDisplayName = "Log out";
-const authenticationPageRoute = "/auth";
+const stackedChartPageDisplayName = "Stacked Chart";
+const stackedChartPageRoute = "/stackedChart";
 
 class MenuItem {
   final String name;
@@ -20,8 +20,8 @@ class MenuItem {
 }
 
 List<MenuItem> sideMenuItemRoutes = [
-  MenuItem(overviewPageDisplayName, overviewPageRoute),
-  MenuItem(driversPageDisplayName, driversPageRoute),
-  MenuItem(clientsPageDisplayName, clientsPageRoute),
-  MenuItem(authenticationPageDisplayName, authenticationPageRoute),
+  MenuItem(columnChartPageDisplayName, columnChartPageRoute),
+  MenuItem(splineChartPageDisplayName, splineChartPageRoute),
+  MenuItem(funnelChartPageDisplayName, funnelChartPageRoute),
+  MenuItem(stackedChartPageDisplayName, stackedChartPageRoute),
 ];

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'app/modules/home/home_page.dart';
+import 'app/modules/site_layout/site_layout.dart';
 import 'app/modules/menu/menu_controller.dart';
 import 'app/modules/navigation/navigation_controller.dart';
 import 'app/modules/routes/routes.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: authenticationPageRoute,
+      initialRoute: stackedChartPageRoute,
       unknownRoute: GetPage(
           name: '/not-found',
           page: () => SiteLayout(),
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             page: () {
               return SiteLayout();
             }),
-        GetPage(name: authenticationPageRoute, page: () => SiteLayout()),
+        GetPage(name: stackedChartPageRoute, page: () => SiteLayout()),
       ],
       debugShowCheckedModeBanner: false,
       title: 'Dashboard',

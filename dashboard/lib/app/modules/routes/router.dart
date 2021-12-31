@@ -1,18 +1,20 @@
-import 'package:dashboard/app/modules/pages/drivers.dart';
-import 'package:dashboard/app/modules/pages/overview.dart';
+import 'package:dashboard/app/modules/pages/funnel_chart/funnel_chart_page.dart';
+import 'package:dashboard/app/modules/pages/spline_chart/spline_chart_page.dart';
+import 'package:dashboard/app/modules/pages/column_chart/column_chart_page.dart';
+import 'package:dashboard/app/modules/pages/stacked_chart/stacked_chart_page.dart';
 import 'package:dashboard/app/modules/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case overviewPageRoute:
-      return _getPageRoute(OverviewPage());
-    case driversPageRoute:
-      return _getPageRoute(DriversPage());
-    case clientsPageRoute:
-      return _getPageRoute(OverviewPage());
+    case columnChartPageRoute:
+      return _getPageRoute(ColumnChartPage());
+    case splineChartPageRoute:
+      return _getPageRoute(SplineColumnPage());
+    case funnelChartPageRoute:
+      return _getPageRoute(FunnelChartPage());
     default:
-      return _getPageRoute(OverviewPage());
+      return _getPageRoute(StackedChartPage());
   }
 }
 
