@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../custom_text.dart';
+import '../custom_text/custom_text.dart';
 
 class HorizontalMenuItem extends StatelessWidget {
   final String itemName;

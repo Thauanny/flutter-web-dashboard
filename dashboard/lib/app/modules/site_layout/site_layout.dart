@@ -1,8 +1,8 @@
 import 'package:dashboard/app/shared/helpers/local_navigator.dart';
 import 'package:dashboard/app/shared/helpers/responsive_layout_widget.dart';
-import 'package:dashboard/app/shared/widgets/large_screen.dart';
+import 'package:dashboard/app/shared/widgets/screens_sizes/large_screen.dart';
 import 'package:dashboard/app/shared/widgets/menu/side_menu.dart';
-import 'package:dashboard/app/shared/widgets/top_navigation_app_bar.dart';
+import 'package:dashboard/app/shared/widgets/top_bar/top_navigation_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class SiteLayout extends StatelessWidget {

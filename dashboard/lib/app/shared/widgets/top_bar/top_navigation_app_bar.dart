@@ -2,7 +2,7 @@ import 'package:dashboard/app/shared/constants/style.dart';
 import 'package:dashboard/app/shared/helpers/responsive_layout_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'custom_text.dart';
+import '../custom_text/custom_text.dart';
 
 AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
     AppBar(

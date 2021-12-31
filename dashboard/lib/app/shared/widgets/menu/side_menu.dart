@@ -7,7 +7,7 @@ import 'package:dashboard/app/shared/widgets/menu/side_menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../custom_text.dart';
+import '../custom_text/custom_text.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key key}) : super(key: key);

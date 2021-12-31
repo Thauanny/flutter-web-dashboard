@@ -1,7 +1,7 @@
 import 'package:dashboard/app/shared/helpers/local_navigator.dart';
 import 'package:flutter/material.dart';
 
-import 'menu/side_menu.dart';
+import '../menu/side_menu.dart';
 
 class LargeScreen extends StatelessWidget {
   @override
