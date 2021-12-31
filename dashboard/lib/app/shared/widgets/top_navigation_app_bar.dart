@@ -118,4 +118,5 @@ Widget _logo(BuildContext context, GlobalKey<ScaffoldState> key) =>
             icon: Icon(Icons.menu),
             onPressed: () {
               key.currentState?.openDrawer();
-            });
+            },
+          );

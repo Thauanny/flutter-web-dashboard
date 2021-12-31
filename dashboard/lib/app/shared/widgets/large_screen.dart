@@ -10,7 +10,7 @@ class LargeScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(child: SideMenu()),
-        Expanded(flex: 6, child: localNavigator()),
+        Expanded(flex: 5, child: localNavigator()),
       ],
     );
   }
